@@ -23,7 +23,7 @@ public class HuggingFaceClient {
 
     public String classifyUrl(String url) {
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer" + apiToken);
+        headers.set("Authorization", "Bearer " + apiToken);
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         Map<String, String> input = Map.of("inputs", url);
@@ -33,7 +33,7 @@ public class HuggingFaceClient {
             ResponseEntity<List> response = restTemplate.postForEntity(modelUrl, request, List.class);
             if (response.getBody() != null && !response.getBody().isEmpty()) {
                 Map result = (Map) ((List) response.getBody()).get(0);
-                return  (String) result.get("label");
+                return (String) result.get("label");
             }
         } catch (Exception e) {
             return "error: " + e.getMessage();
