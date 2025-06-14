@@ -17,7 +17,7 @@ public class JwtService {
     private final long EXPIRATION_MS = 1000 * 60 * 60 *24; // 24 hours
 
     // You can store this key in the env or config
-    @Value("${JWT_KEY}")
+    @Value("${jwt.secret}")
     private String SECRET_KEY;
 
     @PostConstruct

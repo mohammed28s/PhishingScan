@@ -4,6 +4,7 @@ package com.PhishingScan.email.entity;
 import com.PhishingScan.email.enums.Role;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -18,6 +19,7 @@ public class Users {
     private Integer id;
 
     @Column(nullable = false)
+    @CreationTimestamp
     private LocalDateTime created_at;
 
     @Column(nullable = false)
