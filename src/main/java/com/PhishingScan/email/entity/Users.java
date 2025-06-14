@@ -5,15 +5,23 @@ import com.PhishingScan.email.enums.Role;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 
 @Entity
 @Data
 @Table(name = "users")
-public class User {
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(nullable = false)
+    private LocalDateTime created_at;
+
+    @Column(nullable = false)
+    private String email;
 
     @Column(unique = true, nullable = false)
     private String username;

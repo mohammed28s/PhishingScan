@@ -17,17 +17,20 @@ public class Phishing_scan {
     private Integer id;
 
     @Column(columnDefinition = "TEXT", nullable = false)
-    private String emailText;
+    private String email_text;
+
+    @Column(columnDefinition = "TEXT", nullable = false)
+    private String explanation;
 
     @Column(nullable = false)
-    private String result; // example: "PHISHING" pr "SAFE"
+    private String result; // example: "PHISHING" or "SAFE"
 
     @Column(nullable = false)
     private LocalDateTime scanned_at;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private User users;
+    private Users users;
 
 
 
