@@ -105,6 +105,8 @@
             <scope>runtime</scope>
         </dependency>
 
+
+
         <!-- Password encoder -->
         <dependency>
             <groupId>org.springframework.security</groupId>
