@@ -2,6 +2,7 @@ package com.PhishingScan.email.Controller;
 
 
 import com.PhishingScan.email.service.HuggingFaceClient;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +21,7 @@ public class PhishingScanController {
 
     @PreAuthorize("hasAnyAuthority('USER')")
     @PostMapping("/check")
-    public Map<String, Object> checkUrl(@RequestParam String url) {
+    public Map<String, Object> checkUrl(@Valid @RequestParam String url) {
         String result = huggingFaceClient.classifyUrl(url);
         return Map.of("url", url,
                 "classification", result);
