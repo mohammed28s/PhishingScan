@@ -30,7 +30,7 @@ public class SecurityConfig {   // this is for Spring Security Config
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll() // Public endpoints
+                        .requestMatchers("/api/**").permitAll() // Public endpoints
                         .anyRequest().authenticated()                // All others need token
                 )
                 .authenticationProvider(daoAuthenticationProvider())

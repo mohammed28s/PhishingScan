@@ -1,0 +1,38 @@
+🔐 Authentication API
+
+🔹 Register
+###
+POST /api/auth/register
+
+{
+  "email": "user@example.com",
+  "password": "123456"
+}
+🔹 Login
+###
+POST /api/auth/login
+
+{
+  "email": "user@example.com",
+  "password": "123456"
+}
+Returns:
+
+{ "token": "eyJhbGciOi..." }
+🧪 Scan Phishing URL
+
+🔒 Requires JWT Auth
+Endpoint
+###
+POST /api/phishing/check
+Header
+Authorization: Bearer <your_token>
+Body (form-urlencoded)
+url=https://suspicious-url.com
+
+Response
+
+{
+  "url": "https://suspicious-url.com",
+  "classification": "phishing"
+}
