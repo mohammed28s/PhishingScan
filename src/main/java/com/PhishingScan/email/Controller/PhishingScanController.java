@@ -17,7 +17,7 @@ public class PhishingScanController {
     private final HuggingFaceClient huggingFaceClient;
 
     @PreAuthorize("hasAnyAuthority('USER')")
-    @PostMapping("/check")
+    @GetMapping("/check")
     public Map<String, Object> checkUrl(@Valid @RequestParam String url) {
         String result = huggingFaceClient.classifyUrl(url);
         return Map.of("url", url,
