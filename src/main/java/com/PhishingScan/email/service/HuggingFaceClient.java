@@ -32,7 +32,7 @@ public class HuggingFaceClient {
         try {
             ResponseEntity<List> response = restTemplate.postForEntity(modelUrl, request, List.class);
             if (response.getBody() != null && !response.getBody().isEmpty()) {
-                Map result = (Map) ((List) response.getBody()).get(0);
+                Map result = (Map) response.getBody().get(0);
                 return (String) result.get("label");
             }
         } catch (Exception e) {
